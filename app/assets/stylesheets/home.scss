@@ -1,0 +1,348 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$nl-green: #81ad58;
+$light-gray: #878787;
+$dark-gray: #404040;
+$grayish-bg: #f7f7f7;
+$dark-gray-footer: #464646;
+$footer-line-black: #2c2c2c;
+$dot-green: #388e3c;
+
+
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.lato {
+  font-family: 'Lato', sans-serif;
+}
+
+#main-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "banner"
+    "main"
+    "qualities"
+    "portfolio"
+    "contact";
+
+  & > * {
+    // height: 340px;
+  }
+
+  .banner {
+    background: asset_url("banner.jpg") center no-repeat;
+    grid-area: banner;
+    display: grid;
+    grid-template-areas: "lside mid rside";
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 340px;
+
+    .mid-banner {
+      color: white;
+      font-size: 16px;
+      font-weight: 300;
+      grid-area: mid;
+      align-self: center;
+      justify-self: center;
+
+      display: grid;
+      grid-template-columns: 100%;
+      grid-gap: 60px;
+
+      h2 {
+        font-weight: 100;
+        letter-spacing: 1px;
+      }
+
+      .our-services {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+        place-items: center;
+        font-size: 14px;
+      }
+    }
+  }
+
+  #main {
+    grid-area: main;
+    padding: 60px 0;
+
+    & > .container {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-areas:
+      "sm-description"
+      "big-description"
+      "labels"
+      "showcase";
+      place-items: center;
+      grid-gap: 40px
+    }
+
+    .small-description {
+      color: $nl-green;
+      grid-area: sm-description;
+
+      h3 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 300;
+      }
+    }
+
+    .big-description {
+      grid-area: big-description;
+      text-align: center;
+      color: $dark-gray;
+      p {
+        font-weight: 100;
+      }
+    }
+
+    .labels {
+      grid-area: labels;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      place-items: center;
+
+      .label {
+        padding: 20px;
+        border-radius: 40px;
+        border-color: $nl-green;
+        border-width: 1px;
+        border-style: solid;
+        color: $nl-green;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    .showcase {
+      grid-area: showcase;
+      display: grid;
+      width: 100%;
+      grid-template-columns: auto auto auto auto auto auto;
+      place-items: center;
+
+      .showcase-item {
+      }
+    }
+  }
+
+  .qualities {
+    grid-area: qualities;
+    background-color: $grayish-bg;
+    padding: 60px 0;
+
+    .cards {
+      grid-template-columns: 1fr 1fr 1fr;
+      display: grid;
+      grid-gap: 24px;
+
+      .card {
+        padding: 30px;
+        background-color: white;
+
+        display: grid;
+        grid-template-areas:
+          "image"
+          "title"
+          "text";
+        justify-items: center;
+        align-items: start;
+        grid-template-rows: auto auto 1fr;
+        grid-gap: 20px;
+
+        border-radius: 4px;
+
+        img {
+          grid-area: image;
+        }
+
+        .card-title {
+          grid-area: title;
+          font-size: 30px;
+          color: $nl-green;
+          font-family: 'Lato', sans-serif;
+          font-weight: 300;
+        }
+
+        p {
+          grid-area: text;
+          text-align: center;
+          color: $light-gray;
+          font-weight: 100;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  .portfolio {
+    grid-area: portfolio;
+    height: 400px;
+    position: relative;
+    padding: 40px 0;
+
+    .title {
+      position: absolute;
+      font-size: 108px;
+      color: $nl-green;
+      width: 300px;
+    }
+
+    .arrows {
+      position: absolute;
+      bottom: 40px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100px;
+      place-items: center;
+    }
+
+    .slider {
+      width: 100%;
+      .slide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        position: relative;
+
+        .details {
+          position: relative;
+          align-self: end;
+          padding-left: 100px;
+          padding-right: 24px;
+          padding-bottom: 30px;
+
+          display: grid;
+          grid-template-columns: 100%;
+          grid-gap: 40px;
+
+          .details-title {
+            color: $dark-gray;
+            font-size: 24px;
+          }
+
+          .description {
+            color: $light-gray;
+          }
+        }
+
+        img {
+          width: 100%
+        }
+      }
+    }
+  }
+
+  .contact {
+    grid-area: contact;
+    background-color: $dark-gray-footer;
+    color: $grayish-bg;
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      padding: 40px 0;
+
+      .title {
+        font-size: 48px;
+      }
+
+      .details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2px;
+        background-color: $footer-line-black;
+
+        .informations {
+          background-color: $dark-gray-footer;
+          display: grid;
+          place-items: center;
+
+          .phone {
+          }
+          .email {
+          }
+        }
+
+        .send-contact {
+          background-color: $dark-gray-footer;
+          display: grid;
+          place-items: center;
+
+          .send-form {
+            .stylish-input {
+            }
+            .stylish-button {
+            }
+          }
+        }
+      }
+    }
+  }
+}
