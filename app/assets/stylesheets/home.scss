@@ -92,11 +92,23 @@ html {
 
   .banner {
     background: asset_url("banner.jpg") center no-repeat;
+    background-position: cover;
     grid-area: banner;
+  }
+
+  .banner-grid {
     display: grid;
     grid-template-areas: "lside mid rside";
     grid-template-columns: 1fr 2fr 1fr;
     height: 340px;
+
+    .lside {
+      grid-area: lside;
+
+      img {
+        max-width: 100%;
+      }
+    }
 
     .mid-banner {
       color: white;
@@ -121,6 +133,8 @@ html {
         grid-gap: 10px;
         place-items: center;
         font-size: 14px;
+        color: white;
+        text-decoration: none;
       }
     }
   }
