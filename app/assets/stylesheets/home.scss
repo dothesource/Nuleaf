@@ -1,82 +1,6 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables.scss";
 
-$nl-green: #81ad58;
-$light-gray: #878787;
-$dark-gray: #404040;
-$grayish-bg: #f7f7f7;
-$dark-gray-footer: #464646;
-$footer-line-black: #2c2c2c;
-$dot-green: #388e3c;
-
-
-
-html {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.no-margin {
-  margin: 0;
-}
-
-.lato {
-  font-family: 'Lato', sans-serif;
-}
-
-#main-container {
+#home {
   display: grid;
   grid-template-columns: auto;
   grid-template-areas:
@@ -94,52 +18,53 @@ html {
     background: asset_url("banner.jpg") center no-repeat;
     background-position: cover;
     grid-area: banner;
-  }
 
-  .banner-grid {
-    display: grid;
-    grid-template-areas: "lside mid rside";
-    grid-template-columns: 1fr 2fr 1fr;
-    height: 340px;
-
-    .lside {
-      grid-area: lside;
-
-      img {
-        max-width: 100%;
-      }
-    }
-
-    .mid-banner {
-      color: white;
-      font-size: 16px;
-      font-weight: 300;
-      grid-area: mid;
-      align-self: center;
-      justify-self: center;
-
+    & > .container {
       display: grid;
-      grid-template-columns: 100%;
-      grid-gap: 60px;
+      grid-template-areas: "lside mid rside";
+      grid-template-columns: 1fr 2fr 1fr;
+      height: 340px;
 
-      h2 {
-        font-weight: 100;
-        letter-spacing: 1px;
+      .lside {
+        grid-area: lside;
+
+        img {
+          max-width: 100%;
+        }
       }
 
-      .our-services {
+      .mid-banner {
+        color: white;
+        font-size: 16px;
+        font-weight: 300;
+        grid-area: mid;
+        align-self: center;
+        justify-self: center;
+
         display: grid;
         grid-template-columns: 100%;
-        grid-gap: 10px;
-        place-items: center;
-        font-size: 14px;
-        color: white;
-        text-decoration: none;
+        grid-gap: 60px;
+
+        h2 {
+          font-weight: 100;
+          letter-spacing: 1px;
+        }
+
+        .our-services {
+          display: grid;
+          grid-template-columns: 100%;
+          grid-gap: 10px;
+          place-items: center;
+          font-size: 14px;
+          color: white;
+          text-decoration: none;
+        }
       }
     }
   }
 
-  #main {
+
+  .main {
     grid-area: main;
     padding: 60px 0;
 
